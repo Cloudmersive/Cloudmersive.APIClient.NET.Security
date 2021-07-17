@@ -14,9 +14,9 @@ $slnpath = Resolve-Path ./client/Cloudmersive.APIClient.NET.Security.sln
 (Get-Content $nuspecpath).replace('<title>Swagger Library</title>', "<title>Image Recognition and Processing APIs</title><licenseUrl>https://www.apache.org/licenses/LICENSE-2.0.txt</licenseUrl>") | Set-Content $nuspecpath
 (Get-Content $nuspecpath).replace('<authors>$author$</authors>', "<authors>Cloudmersive</authors>") | Set-Content $nuspecpath
 (Get-Content $nuspecpath).replace('<owners>$author$</owners>', "<owners>Cloudmersive</owners>") | Set-Content $nuspecpath
-(Get-Content $nuspecpath).replace('<description>A library generated from a Swagger doc</description>', "<description>Cloudmersive Virus Scan allows you to scan files, URLs, and webistes for viruses, malware, trojans, ransomware, spyware, and many other types of threats.  Multi-factor scanninga cross many delivery methods including polymorphic and multipartite.  Scanning supports files, archives, and recursive file formats.</description>") | Set-Content $nuspecpath
+(Get-Content $nuspecpath).replace('<description>A library generated from a Swagger doc</description>', "<description>The security APIs help you detect and block security threats.</description>") | Set-Content $nuspecpath
 (Get-Content $nuspecpath).replace('<!-- Authors contain text that appears directly on the gallery -->', "<iconUrl>https://cloudmersive.com/images/cmsdk.png</iconUrl>") | Set-Content $nuspecpath
-(Get-Content $nuspecpath).replace('<dependencies>', "<projectUrl>https://cloudmersive.com/virus-api</projectUrl><dependencies>") | Set-Content $nuspecpath
+(Get-Content $nuspecpath).replace('<dependencies>', "<projectUrl>https://cloudmersive.com/security-api</projectUrl><dependencies>") | Set-Content $nuspecpath
 
 
 
