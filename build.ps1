@@ -1,14 +1,14 @@
 ﻿Remove-Item –path ./client –recurse
-& java -jar swagger-codegen-cli-2.4.5.jar generate -i https://api.cloudmersive.com/swagger/api/virus -l csharp -o client -c packageconfig.json
+& java -jar swagger-codegen-cli-2.4.5.jar generate -i https://api.cloudmersive.com/swagger/api/security -l csharp -o client -c packageconfig.json
 #(Get-Content ./client/src/api/ConvertDocumentApi.js).replace('var returnType = Object;', "var returnType = 'Blob';") | Set-Content ./client/src/api/ConvertDocumentApi.js
 #(Get-Content ./client/src/api/ConvertWebApi.js).replace('var returnType = Object;', "var returnType = 'Blob';") | Set-Content ./client/src/api/ConvertWebApi.js
 #& npm build ./client
 
 
-$csprojpath = Resolve-Path ./client/src/Cloudmersive.APIClient.NET.VirusScan/Cloudmersive.APIClient.NET.VirusScan.csproj
-$csprojtestpath = Resolve-Path ./client/src/Cloudmersive.APIClient.NET.VirusScan.Test/Cloudmersive.APIClient.NET.VirusScan.Test.csproj
-$nuspecpath = Resolve-Path ./client/src/Cloudmersive.APIClient.NET.VirusScan/Cloudmersive.APIClient.NET.VirusScan.nuspec
-$slnpath = Resolve-Path ./client/Cloudmersive.APIClient.NET.VirusScan.sln
+$csprojpath = Resolve-Path ./client/src/Cloudmersive.APIClient.NET.Security/Cloudmersive.APIClient.NET.Security.csproj
+$csprojtestpath = Resolve-Path ./client/src/Cloudmersive.APIClient.NET.Security.Test/Cloudmersive.APIClient.NET.Security.Test.csproj
+$nuspecpath = Resolve-Path ./client/src/Cloudmersive.APIClient.NET.Security/Cloudmersive.APIClient.NET.Security.nuspec
+$slnpath = Resolve-Path ./client/Cloudmersive.APIClient.NET.Security.sln
 
 
 (Get-Content $nuspecpath).replace('<title>Swagger Library</title>', "<title>Image Recognition and Processing APIs</title><licenseUrl>https://www.apache.org/licenses/LICENSE-2.0.txt</licenseUrl>") | Set-Content $nuspecpath
@@ -51,8 +51,8 @@ $slnpath = Resolve-Path ./client/Cloudmersive.APIClient.NET.VirusScan.sln
 
 # Packages.config
 
-(Get-Content '.\client\src\Cloudmersive.APIClient.NET.VirusScan\packages.config').replace('<package id="RestSharp" version="105.1.0" targetFramework="net45" developmentDependency="true" />', '<package id="RestSharp" version="106.6.10" targetFramework="net45" developmentDependency="true" />') | Set-Content '.\client\src\Cloudmersive.APIClient.NET.VirusScan\packages.config'
-(Get-Content '.\client\src\Cloudmersive.APIClient.NET.VirusScan\Client\ApiClient.cs').replace('request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentType);', 'request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentLength, param.Value.ContentType);') | Set-Content '.\client\src\Cloudmersive.APIClient.NET.VirusScan\Client\ApiClient.cs'
+(Get-Content '.\client\src\Cloudmersive.APIClient.NET.Security\packages.config').replace('<package id="RestSharp" version="105.1.0" targetFramework="net45" developmentDependency="true" />', '<package id="RestSharp" version="106.6.10" targetFramework="net45" developmentDependency="true" />') | Set-Content '.\client\src\Cloudmersive.APIClient.NET.Security\packages.config'
+(Get-Content '.\client\src\Cloudmersive.APIClient.NET.Security\Client\ApiClient.cs').replace('request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentType);', 'request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentLength, param.Value.ContentType);') | Set-Content '.\client\src\Cloudmersive.APIClient.NET.Security\Client\ApiClient.cs'
 
 
 
@@ -66,7 +66,7 @@ $slnpath = Resolve-Path ./client/Cloudmersive.APIClient.NET.VirusScan.sln
 
 C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe $slnpath /t:rebuild 
 
-& C:\CodeSigning\sign.ps1 ./client/src/Cloudmersive.ApiClient.NET.VirusScan/bin/Debug/Cloudmersive.APIClient.NET.VirusScan.dll
+& C:\CodeSigning\sign.ps1 ./client/src/Cloudmersive.ApiClient.NET.Security/bin/Debug/Cloudmersive.APIClient.NET.Security.dll
 
 ./nuget.exe pack $csprojpath
 
