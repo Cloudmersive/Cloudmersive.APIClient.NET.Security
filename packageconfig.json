@@ -1,6 +1,6 @@
 ﻿{
     "packageName": "Cloudmersive.APIClient.NET.Security",
-    "packageVersion": "3.0.1",
+    "packageVersion": "3.0.2",
     "netCoreProjectFile": "false",
     "packageGuid": "bf666a4f-0380-426a-bbda-c0e1d0161129"
 }
